@@ -1,0 +1,12 @@
+# One public website and API. Render builds the Dockerfile, which installs
+# LibreOffice. Leave the dashboard Build and Start commands empty so this
+# file's Docker command is used.
+services:
+  - type: web
+    name: invoice-bills
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: APP_ENV
+        value: production

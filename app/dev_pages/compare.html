@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UltraTech render check</title>
+  <style>
+    body { font-family: "Segoe UI", sans-serif; margin: 16px; background: #f3efe6; color: #1c1915; }
+    h1 { font-size: 1.3rem; }
+    p { max-width: 70ch; line-height: 1.45; }
+    .grid { display: grid; gap: 16px; }
+    @media (min-width: 1000px) { .grid { grid-template-columns: 1fr 1fr; } }
+    iframe { width: 100%; height: 80vh; border: 1px solid #e3d9cc; background: white; }
+    a { color: #1e4d3a; }
+  </style>
+</head>
+<body>
+  <p><a href="/">Back to the app</a></p>
+  <h1>UltraTech rendering check</h1>
+  <p>Left or top is the original Excel template rendered to PDF with no edits. Right or bottom is the 15 May 2026 test bill. The layout should match. Only the invoice number, invoice date, and bill period should differ.</p>
+  <div class="grid">
+    <section>
+      <h2>Original template</h2>
+      <iframe title="Original template PDF" src="/api/dev/reference-pdf"></iframe>
+    </section>
+    <section>
+      <h2>Generated test PDF</h2>
+      <iframe title="Generated test PDF" src="/api/dev/test-pdf"></iframe>
+    </section>
+  </div>
+</body>
+</html>

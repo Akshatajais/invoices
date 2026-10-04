@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1e4d3a">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Invoices</title>
+  <link rel="stylesheet" href="/assets/styles.css?v=2">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <p class="brand">Invoices</p>
+    </header>
+
+    <main id="home" class="screen">
+      <h1>Choose a bill</h1>
+      <p class="lede">Pick a bill type. UltraTech, Dalmia Lalan, Dalmia Shila, ACC Lalan, and ACC Shila can be generated.</p>
+      <div id="bill-list" class="cards" aria-live="polite"></div>
+      <p id="home-error" class="message is-error" hidden></p>
+    </main>
+
+    <main id="ultratech" class="screen" hidden>
+      <button type="button" class="back" id="back-home">Back</button>
+      <h1>UltraTech Bill</h1>
+      <p class="lede">Choose the invoice date. The invoice number and billing period are filled in for you.</p>
+
+      <form id="ultratech-form" novalidate>
+        <label class="field">
+          <span>Invoice Date</span>
+          <input id="invoice-date" name="invoiceDate" type="date" required>
+        </label>
+
+        <label class="field">
+          <span>Billing Month</span>
+          <input id="billing-month" type="text" readonly tabindex="-1" placeholder="—">
+        </label>
+
+        <label class="field">
+          <span>Invoice Number</span>
+          <input id="invoice-number" type="text" readonly tabindex="-1" placeholder="—">
+        </label>
+
+        <label class="field">
+          <span>Bill Period</span>
+          <input id="bill-period" type="text" readonly tabindex="-1" placeholder="—">
+        </label>
+
+        <p id="form-error" class="message is-error" role="alert" hidden></p>
+        <p id="form-status" class="message" role="status" hidden></p>
+
+        <div class="actions">
+          <button type="submit" class="primary" id="generate-btn">Generate PDF</button>
+          <button type="button" class="primary is-download" id="download-btn" hidden>Download PDF</button>
+        </div>
+      </form>
+    </main>
+
+    <main id="dalmia-lalan" class="screen" hidden>
+      <button type="button" class="back" id="dalmia-lalan-back">Back</button>
+      <h1>Dalmia Bill – Lalan</h1>
+      <p class="lede">Choose the invoice date. The invoice number and time period are filled in for you.</p>
+
+      <form id="dalmia-lalan-form" novalidate>
+        <label class="field">
+          <span>Invoice Date</span>
+          <input id="dalmia-lalan-date" name="invoiceDate" type="date" required>
+        </label>
+
+        <label class="field">
+          <span>Invoice Number</span>
+          <input id="dalmia-lalan-number" type="text" readonly tabindex="-1" placeholder="—">
+        </label>
+
+        <label class="field">
+          <span>Time Period</span>
+          <input id="dalmia-lalan-period" type="text" readonly tabindex="-1" placeholder="—">
+        </label>
+
+        <p id="dalmia-lalan-error" class="message is-error" role="alert" hidden></p>
+        <p id="dalmia-lalan-status" class="message" role="status" hidden></p>
+
+        <div class="actions">
+          <button type="submit" class="primary" id="dalmia-lalan-generate" disabled>Generate PDF</button>
+          <button type="button" class="primary is-download" id="dalmia-lalan-download" hidden>Download PDF</button>
+        </div>
+      </form>
+    </main>
+
+    <main id="dalmia-shila" class="screen" hidden>
+      <button type="button" class="back" id="dalmia-shila-back">Back</button>
+      <h1>Dalmia Bill – Shila</h1>
+      <p class="lede">Choose the invoice date. The invoice number and time period are filled in for you.</p>
+
+      <form id="dalmia-shila-form" novalidate>
+        <label class="field">
+          <span>Invoice Date</span>
+          <input id="dalmia-shila-date" name="invoiceDate" type="date" required>
+        </label>
+
+        <label class="field">
+          <span>Invoice Number</span>
+          <input id="dalmia-shila-number" type="text" readonly tabindex="-1" placeholder="—">
+        </label>
+
+        <label class="field">
+          <span>Time Period</span>
+          <input id="dalmia-shila-period" type="text" readonly tabindex="-1" placeholder="—">
+        </label>
+
+        <p id="dalmia-shila-error" class="message is-error" role="alert" hidden></p>
+        <p id="dalmia-shila-status" class="message" role="status" hidden></p>
+
+        <div class="actions">
+          <button type="submit" class="primary" id="dalmia-shila-generate" disabled>Generate PDF</button>
+          <button type="button" class="primary is-download" id="dalmia-shila-download" hidden>Download PDF</button>
+        </div>
+      </form>
+    </main>
+
+    <main id="acc-lalan" class="screen" hidden>
+      <button type="button" class="back" id="acc-lalan-back">Back</button>
+      <h1>ACC Bill – Lalan</h1>
+      <p class="lede">Choose the invoice date. The invoice number and time period are filled in for you.</p>
+
+      <form id="acc-lalan-form" novalidate>
+        <label class="field">
+          <span>Invoice Date</span>
+          <input id="acc-lalan-date" name="invoiceDate" type="date" required>
+        </label>
+
+        <label class="field">
+          <span>Invoice Number</span>
+          <input id="acc-lalan-number" type="text" readonly tabindex="-1" placeholder="—">
+        </label>
+
+        <label class="field">
+          <span>Time Period</span>
+          <input id="acc-lalan-period" type="text" readonly tabindex="-1" placeholder="—">
+        </label>
+
+        <p id="acc-lalan-error" class="message is-error" role="alert" hidden></p>
+        <p id="acc-lalan-status" class="message" role="status" hidden></p>
+
+        <div class="actions">
+          <button type="submit" class="primary" id="acc-lalan-generate" disabled>Generate PDF</button>
+          <button type="button" class="primary is-download" id="acc-lalan-download" hidden>Download PDF</button>
+        </div>
+      </form>
+    </main>
+
+    <main id="acc-shila" class="screen" hidden>
+      <button type="button" class="back" id="acc-shila-back">Back</button>
+      <h1>ACC Bill – Shila</h1>
+      <p class="lede">Choose the invoice date. The invoice number and time period are filled in for you.</p>
+
+      <form id="acc-shila-form" novalidate>
+        <label class="field">
+          <span>Invoice Date</span>
+          <input id="acc-shila-date" name="invoiceDate" type="date" required>
+        </label>
+
+        <label class="field">
+          <span>Invoice Number</span>
+          <input id="acc-shila-number" type="text" readonly tabindex="-1" placeholder="—">
+        </label>
+
+        <label class="field">
+          <span>Time Period</span>
+          <input id="acc-shila-period" type="text" readonly tabindex="-1" placeholder="—">
+        </label>
+
+        <p id="acc-shila-error" class="message is-error" role="alert" hidden></p>
+        <p id="acc-shila-status" class="message" role="status" hidden></p>
+
+        <div class="actions">
+          <button type="submit" class="primary" id="acc-shila-generate" disabled>Generate PDF</button>
+          <button type="button" class="primary is-download" id="acc-shila-download" hidden>Download PDF</button>
+        </div>
+      </form>
+    </main>
+  </div>
+  <script src="/assets/app.js"></script>
+</body>
+</html>
