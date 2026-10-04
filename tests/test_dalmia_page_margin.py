@@ -4,6 +4,7 @@ from app.bill_modules.acc_lalan.pdf_processing import add_page_margins as pad_ac
 from app.bill_modules.acc_shila.pdf_processing import add_page_margins as pad_acc_shila
 from app.bill_modules.dalmia_lalan.pdf_processing import add_page_margins as pad_lalan
 from app.bill_modules.dalmia_shila.pdf_processing import add_page_margins as pad_shila
+from app.bill_modules.ultratech.pdf_processing import add_top_margin
 
 
 def test_bill_margins_add_half_an_inch_on_every_side(tmp_path):
@@ -14,6 +15,15 @@ def test_bill_margins_add_half_an_inch_on_every_side(tmp_path):
         page = PdfReader(framed).pages[0]
         assert float(page.mediabox.width) == 472
         assert float(page.mediabox.height) == 372
+
+
+def test_ultratech_margin_adds_half_an_inch_on_top_only(tmp_path):
+    source = tmp_path / "ultratech.pdf"
+    _write_blank_page(source, width=400, height=300)
+    framed = add_top_margin(source)
+    page = PdfReader(framed).pages[0]
+    assert float(page.mediabox.width) == 400
+    assert float(page.mediabox.height) == 336
 
 
 def _write_blank_page(path, width, height):
