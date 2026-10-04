@@ -10,6 +10,9 @@ FINANCIAL_YEAR_LABEL = "2026-27"
 SUPPORTED_START = date(2026, 5, 1)
 SUPPORTED_END = date(2027, 4, 30)
 
+# White space added above the printed page. The Excel grid stays as it is.
+TOP_MARGIN_INCHES = 0.5
+
 # Sheet "Godwon rent (2)", inspected from the master workbook.
 # Labels stay where they are:
 #   I8  "Invoice No-"
